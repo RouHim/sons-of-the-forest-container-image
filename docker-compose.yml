@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  sons-of-the-forest-server:
+    image: rouhim/sons-of-the-forest-server
+    build:
+      context: .
+    volumes:
+      - "./config:/config"
+      - "./data:/data"
+    ports:
+      - "8766:8766/udp"
+      - "27016:27016/udp"
+      - "9700:9700/udp"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
