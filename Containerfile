@@ -18,10 +18,11 @@ RUN apt update && \
     wget -qO- 'https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz' | tar zxf - -C $USER_HOME/steamcmd && \
     chown -R ubuntu:ubuntu $USER_HOME/steamcmd
 
-# Install wine and its dependencies
+# Install wine and its dependencies and do a full system upgrade to get the latest and greatest packages
 RUN dpkg --add-architecture i386 && \
     apt update && \
-    apt install -y --no-install-recommends wine wine32 wine64 winbind xvfb
+    apt install -y --no-install-recommends wine wine32 wine64 winbind xvfb && \
+    apt upgrade -y && apt dist-upgrade -y
 
 # Cleanup, remove wget
 RUN apt remove -y wget && \
