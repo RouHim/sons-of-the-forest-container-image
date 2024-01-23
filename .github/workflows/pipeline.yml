@@ -1,5 +1,4 @@
-# This builds the latest stable version of beammp
-name: Stable Release Pipe
+name: Container release pipeline
 on:
   push:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
