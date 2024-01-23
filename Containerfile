@@ -12,9 +12,9 @@ ENV SERVER_CONFIG_FILE "$SERVER_CONFIG_DIR/server.json"
 # Use default non root user ubuntu (1000)
 WORKDIR $USER_HOME
 
-# Install steamcmd
+# Install steamcmd and its dependencies
 RUN apt update && \
-    apt install -y wget lib32gcc-s1 ca-certificates && \
+    apt install -y wget ca-certificates lib32gcc-s1 && \
     mkdir -p $USER_HOME/steamcmd && \
     wget -qO- 'https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz' | tar zxf - -C $USER_HOME/steamcmd && \
     chown -R ubuntu:ubuntu $USER_HOME/steamcmd
@@ -35,7 +35,7 @@ VOLUME $SERVER_DIR
 VOLUME $SERVER_CONFIG_DIR
 
 # Copy steam-game.script to container
-ADD steam-game.script $USER_HOME/steam-game.script
+COPY steam-game.script $USER_HOME/steam-game.script
 
 # Change user to non-root user
 RUN chown -R ubuntu:ubuntu $USER_HOME && \

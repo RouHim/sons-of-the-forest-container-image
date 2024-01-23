@@ -1,3 +1,7 @@
+// Installs, updates and validates the server
+//
+@ShutdownOnFailedCommand 1
+@NoPromptForPassword 1
 @sSteamCmdForcePlatformType windows
 force_install_dir /data
 login anonymous

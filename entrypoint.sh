@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 # Make sure that $SERVER_DIR is accessible for all
-chmod 777 "$SERVER_DIR" 2> /dev/null
+chmod -R 777 "$SERVER_DIR" 2> /dev/null
+chown -R nobody:nogroup "$SERVER_DIR" 2> /dev/null
 
 # Make sure that $SERVER_CONFIG_DIR is accessible for all
-chmod 777 "$SERVER_CONFIG_DIR" 2> /dev/null
+chmod -R 777 "$SERVER_CONFIG_DIR" 2> /dev/null
+chown -R nobody:nogroup "$SERVER_CONFIG_DIR" 2> /dev/null
 
 # Check if $SERVER_DIR is writeable
 if [ ! -w "$SERVER_DIR" ]; then
