@@ -7,7 +7,6 @@ ENV USER_HOME "/home/ubuntu"
 ENV STEAMCMD "$USER_HOME/steamcmd/steamcmd.sh"
 ENV SERVER_DIR "/data"
 ENV SERVER_CONFIG_DIR "/config"
-ENV SERVER_CONFIG_FILE "$SERVER_CONFIG_DIR/server.json"
 
 # Use default non root user ubuntu (1000)
 WORKDIR $USER_HOME

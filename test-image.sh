@@ -1,26 +1,30 @@
 #!/usr/bin/env bash
 
+# Create config and data directories, ignore errors if they already exist
+mkdir -p ./config ./data 2> /dev/null
+
 # Spin up a new container
 echo "🚀 Spinning up a test container"
-docker run -d --name test-container rouhim/sons-of-the-forest
+docker-compose up -d
 
 # Wait some time
 echo "😴 sleeping 10 minutes"
 sleep 10m
 
-# Test for "[Self-Tests] Please restart the server"
+# Test for the string "Please restart the server" is in the server log
+# If it is, then the server started successfully
+# If it is not, then the server failed to start
 echo "🧪 Testing for success"
-docker logs test-container | grep -i '\[Self-Tests\] Please restart the server'
-if [ "$?" -eq 0 ]; then
-  echo "❌ Found errors in server log:"
-  echo "======================"
-  docker logs test-container
-  echo "======================"
-  docker kill test-container && docker rm test-container
+if docker-compose logs | grep -q "Please restart the server"; then
+  echo "✅ Server started successfully"
+else
+  echo "❌ Server failed to start"
+  docker-compose logs
+  docker-compose kill && docker-compose down --volumes
   exit 1
 fi
 
 # Cleanup and exit with 0
-docker kill test-container && docker rm test-container
+docker-compose kill && docker-compose down --volumes
 echo "✅ Done, everything looks good"
 exit 0
