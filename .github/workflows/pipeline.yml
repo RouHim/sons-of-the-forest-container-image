@@ -72,6 +72,8 @@ jobs:
 
       - name: Test the built image
         run: |
+          mkdir -p config/ data/
+          chmod 777 config/ data/
           bash test-image.sh
 
       - name: Build and push container image

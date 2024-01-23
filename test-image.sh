@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Create config and data directories, ignore errors if they already exist
-mkdir -p ./config ./data 2> /dev/null
-
 # Spin up a new container
 echo "🚀 Spinning up a test container"
 docker-compose up -d
