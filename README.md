@@ -4,6 +4,7 @@
 
 <p align="center">
     <a href="https://github.com/RouHim/sons-of-the-forest-container-image/actions/workflows/pipeline.yml"><img src="https://github.com/RouHim/sons-of-the-forest-container-image/actions/workflows/pipeline.yml/badge.svg?branch=main" alt="Pipeline"></a>
+    <a href="https://github.com/RouHim/sons-of-the-forest-container-image/actions/workflows/scheduled-security-audit.yaml"><img src="https://github.com/RouHim/sons-of-the-forest-container-image/actions/workflows/scheduled-security-audit.yaml/badge.svg?branch=main" alt="Pipeline"></a>
     <a href="https://hub.docker.com/r/rouhim/sons-of-the-forest-server"><img src="https://img.shields.io/docker/pulls/rouhim/sons-of-the-forest-server.svg" alt="Docker Hub pulls"></a>
     <a href="https://hub.docker.com/r/rouhim/sons-of-the-forest-server"><img src="https://img.shields.io/docker/image-size/rouhim/sons-of-the-forest-server" alt="Docker Hub size"></a>
     <a href="https://github.com/aquasecurity/trivy"><img src="https://img.shields.io/badge/trivy-protected-blue" alt="trivy"></a>
@@ -12,7 +13,7 @@
 </p>
 
 <p align="center">
-    This project provides a container image for the <a href="https://sons-of-the-forest.com">Sons of the Forest</a>
+    This project provides a <a href="https://github.com/RouHim/sons-of-the-forest-container-image/actions/workflows/scheduled-security-audit.yaml">safe</a> container image for the <a href="https://sons-of-the-forest.com">Sons of the Forest</a>
     game server and shows its usage in a docker-compose environment.
 </p>
 
