@@ -4,7 +4,7 @@ services:
   sons-of-the-forest-server:
     image: rouhim/sons-of-the-forest-server
     build:
-      context: .
+      context: container-data
       dockerfile: Containerfile
     restart: unless-stopped
     volumes:

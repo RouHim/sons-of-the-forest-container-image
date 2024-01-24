@@ -55,7 +55,7 @@ jobs:
         with:
           tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           platforms: linux/amd64
-          context: .
+          context: container-data
           file: ./Containerfile
           load: true
           push: false
@@ -82,7 +82,7 @@ jobs:
         with:
           tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
           platforms: linux/amd64
-          context: .
+          context: container-data
           file: ./Containerfile
           load: false
           push: true
