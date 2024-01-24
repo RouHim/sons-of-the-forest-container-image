@@ -42,7 +42,7 @@ RUN chown -R ubuntu:ubuntu $USER_HOME && \
     chmod 777 -R $SERVER_DIR $SERVER_CONFIG_DIR
 USER ubuntu
 
-# Game quvery port
+# Game port
 EXPOSE 8766/udp
 # Query port
 EXPOSE 27016/udp
