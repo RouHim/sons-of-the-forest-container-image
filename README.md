@@ -18,14 +18,16 @@
 
 ## Introduction
 
-This repository provides a container image for running a Sons of the Forest game server. It is designed to be used with
-Docker and Docker Compose, making it easy to set up and manage your game server environment.
+This repository provides a container image for running a Sons of the Forest game server.
+It is designed to be used with Docker and Docker Compose,
+making it easy to set up and manage your game server environment.
 
 ## Installation
 
-To install and run the Sons of the Forest server using this container image, you will need _Docker_ and _Docker Compose_
-installed on your system. If you do not have these tools installed, please refer to the official Docker documentation
-for installation instructions.
+To install and run the Sons of the Forest server using this container image,
+you will need _Docker_ and _Docker Compose_ installed on your system.
+If you do not have these tools installed,
+please refer to the official Docker documentation for installation instructions.
 
 Once Docker and Docker Compose are installed, clone this repository to your local machine:
 
@@ -49,8 +51,13 @@ docker-compose pull
 docker-compose up -d
 ```
 
-This will pull the latest image and start the server in detached mode. Your Sons of the Forest server should now be
-running and accessible.
+This will pull the latest image and start the server in detached mode.
+
+When starting the server for the first time:
+
+* The config files and folders will be automatically created in the `config/` folder.
+* The server will download the latest version of the game from Steam to the `data/` folder.
+* The server might need to be restarted once to apply the latest game update.
 
 To restart the server after making changes to the configuration, use the following command:
 
@@ -58,18 +65,34 @@ To restart the server after making changes to the configuration, use the followi
 docker-compose restart
 ```
 
+In order to check the server logs, use the following command:
+
+```bash
+docker-compose logs -f
+```
+
 ## Configuration
 
-The game server configuration is done within the `dedicatedserver.cfg` located in the `config/` folder. The file is
-automatically created on the first start of the container. You need to restart the container for changes to take effect.
+> The server configuration does not differ from the official server configuration.
+> Just follow an existing comprehensive guide on how to configure the
+> server: https://steamcommunity.com/sharedfiles/filedetails/?id=2992700419&snr=1_2108_9__2107
 
-The `ownerswhitelist.txt`, also located in the `config/` folder, contains the Steam IDs of the people who are allowed
-to join the server. The file is automatically created on the first start of the container. You need to restart the
-container for changes to take effect.
+The `config` folder contains the configuration files for the game server:
 
-The `data/` folder contains the game server data, such as the world/map save files.
-Feel free to modify files in this folder, but be aware that the game server must be restarted for changes to take
-effect.
+* The server owners list, in a file called `ownerswhitelist.txt`
+* The game server configuration, in a file called `dedicatedserver.cfg`
+* The game saves, in a folder called `Saves`
+* The game settings, in a file called `SonsGameSettings.cfg`
+
+All files and folders in the `config` will be created automatically when the server is started for the first time.
+
+> `SkipNetworkAccessibilityTest` is always set to `true`, because the test method is not working in a container
+> environment.
+
+
+The `data/` folder contains the game server data.
+Feel free to modify files in this folder,
+but be aware that the game server must be restarted for changes to take effect.
 The folder can be deleted to reset the game server to its default state.
 
 # Resources
@@ -78,3 +101,4 @@ The folder can be deleted to reset the game server to its default state.
 - Built from: https://github.com/RouHim/sons-of-the-forest-container-image
 - Built to: https://hub.docker.com/r/rouhim/sons-of-the-forest-server
 - SteamCMD Documentation: https://developer.valvesoftware.com/wiki/SteamCMD
+- Dedicated server guide: https://steamcommunity.com/sharedfiles/filedetails/?id=2992700419&snr=1_2108_9__2107

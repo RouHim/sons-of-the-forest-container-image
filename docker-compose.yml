@@ -6,6 +6,7 @@ services:
     build:
       context: .
       dockerfile: Containerfile
+    restart: unless-stopped
     volumes:
       - "./config:/config"
       - "./data:/data"

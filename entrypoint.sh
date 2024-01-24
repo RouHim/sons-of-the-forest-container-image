@@ -40,12 +40,16 @@ echo "✅ Server config is readable!"
 echo "🖥️ Starting virtual display..."
 export DISPLAY=":99"
 rm -rf /tmp/.X* 2> /dev/null
-Xvfb :99 -screen 0 1024x768x16 &
+Xvfb :99 -screen 0 1024x768x16 -nolisten tcp -nolisten unix &
 wineboot -r
 
 # Update server
 echo "🔄 Updating server..."
 $STEAMCMD +runscript "$USER_HOME"/steam-game.script
+
+# Modify the $SERVER_CONFIG_DIR/dedicatedserver.cfg (json file) and set the value SkipNetworkAccessibilityTest to true
+echo "🔧 Adjust server config..."
+sed -i 's/"SkipNetworkAccessibilityTest": false/"SkipNetworkAccessibilityTest": true/g' "$SERVER_CONFIG_DIR"/dedicatedserver.cfg
 
 # Start server
 echo "🎮 Starting server..."
