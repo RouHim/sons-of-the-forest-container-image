@@ -29,7 +29,7 @@ you will need _Docker_ and _Docker Compose_ installed on your system.
 If you do not have these tools installed,
 please refer to the official Docker documentation for installation instructions.
 
-Once Docker and Docker Compose are installed, clone this repository to your local machine:
+Once _Docker_ and _Docker Compose_ are installed, clone this repository to your local machine:
 
 ```bash
 git clone https://github.com/RouHim/sons-of-the-forest-container-image.git
@@ -74,8 +74,8 @@ docker-compose logs -f
 ## Configuration
 
 > The server configuration does not differ from the official server configuration.
-> Just follow an existing comprehensive guide on how to configure the
-> server: https://steamcommunity.com/sharedfiles/filedetails/?id=2992700419&snr=1_2108_9__2107
+> Just follow an existing server configuration guide
+> like [this](https://steamcommunity.com/sharedfiles/filedetails/?id=2992700419&snr=1_2108_9__2107).
 
 The `config` folder contains the configuration files for the game server:
 
@@ -86,8 +86,8 @@ The `config` folder contains the configuration files for the game server:
 
 All files and folders in the `config` will be created automatically when the server is started for the first time.
 
-> `SkipNetworkAccessibilityTest` is always set to `true`, because the test method is not working in a container
-> environment.
+> `SkipNetworkAccessibilityTest` is always forced to `true`,
+> because the test method is not working in a container environment.
 
 
 The `data/` folder contains the game server data.
