@@ -1,4 +1,6 @@
 name: Container release pipeline
+
+
 on:
   push:
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
@@ -8,10 +10,17 @@ on:
   schedule:
     - cron: "0 0 * * 0" # weekly at sunday night
 
+
+# Avoid running this workflow multiple times at the same branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+
 env:
-  CONTAINER_FILE: ./Containerfile
   IMAGE_NAME: rouhim/sons-of-the-forest-server
   IMAGE_TAG: latest
+
 
 jobs:
 
