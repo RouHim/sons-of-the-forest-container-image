@@ -13,15 +13,9 @@
 </p>
 
 <p align="center">
-    This project provides a <a href="https://github.com/RouHim/sons-of-the-forest-container-image/actions/workflows/scheduled-security-audit.yaml">safe</a> container image for the <a href="https://sons-of-the-forest.com">Sons of the Forest</a>
-    game server and shows its usage in a docker-compose environment.
+    This repository provides a <a href="https://github.com/RouHim/sons-of-the-forest-container-image/actions/workflows/scheduled-security-audit.yaml">safe</a> container image for the <a href="https://sons-of-the-forest.com">Sons of the Forest</a> game server. 
+  It is designed to be used with Docker Compose, making it easy to set up and manage your game server environment.
 </p>
-
-## Introduction
-
-This repository provides a container image for running a Sons of the Forest game server.
-It is designed to be used with Docker and Docker Compose,
-making it easy to set up and manage your game server environment.
 
 ## Requirements
 
