@@ -2,7 +2,8 @@
   "packageRules": [
     {
       "matchManagers": ["dockerfile"],
-      "matchUpdateTypes": ["major", "minor", "patch"]
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "automerge": false
     },
     {
       "matchUpdateTypes": [
