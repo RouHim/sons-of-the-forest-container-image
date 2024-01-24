@@ -8,7 +8,7 @@ docker-compose up -d
 echo "🔍 Checking for the desired string in the logs..."
 while true; do
   # Check if the desired string is in the logs
-  if docker-compose logs | grep -q "Dedicated server loaded"; then
+  if docker-compose logs | grep -q "Please restart the server"; then
     echo "✅ Dedicated server started successfully"
     break
   fi
