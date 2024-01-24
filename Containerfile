@@ -2,7 +2,6 @@
 FROM ubuntu:24.04
 
 # Define environment variables
-ENV DISPLAY :0
 ENV USER_HOME "/home/ubuntu"
 ENV STEAMCMD "$USER_HOME/steamcmd/steamcmd.sh"
 ENV SERVER_DIR "/data"
@@ -43,8 +42,12 @@ RUN chown -R ubuntu:ubuntu $USER_HOME && \
     chmod 777 -R $SERVER_DIR $SERVER_CONFIG_DIR
 USER ubuntu
 
-# Export ports
-EXPOSE 8766/udp 27016/udp 9700/udp
+# Game quvery port
+EXPOSE 8766/udp
+# Query port
+EXPOSE 27016/udp
+# Blobsync port
+EXPOSE 9700/udp
 
 # Define entrypoint
 COPY --chown=ubuntu:ubuntu --chmod=755 entrypoint.sh /entrypoint.sh

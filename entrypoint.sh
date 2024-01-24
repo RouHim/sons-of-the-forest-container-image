@@ -38,8 +38,9 @@ echo "✅ Server config is readable!"
 
 # Start virtual X server
 echo "🖥️ Starting virtual display..."
-Xvfb :0 -screen 0 1024x768x16 -ac &
-rm /tmp/.X1-lock 2> /dev/null
+export DISPLAY=":99"
+rm -rf /tmp/.X* 2> /dev/null
+Xvfb :99 -screen 0 1024x768x16 &
 wineboot -r
 
 # Update server

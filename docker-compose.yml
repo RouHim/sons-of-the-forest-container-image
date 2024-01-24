@@ -10,9 +10,9 @@ services:
       - "./config:/config"
       - "./data:/data"
     ports:
-      - "8766:8766/udp"
-      - "27016:27016/udp"
-      - "9700:9700/udp"
+      - "0.0.0.0:8766:8766/udp"
+      - "0.0.0.0:27016:27016/udp"
+      - "0.0.0.0:9700:9700/udp"
     logging:
       driver: "json-file"
       options:
