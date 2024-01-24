@@ -23,12 +23,12 @@ This repository provides a container image for running a Sons of the Forest game
 It is designed to be used with Docker and Docker Compose,
 making it easy to set up and manage your game server environment.
 
-## Installation
+## Requirements
 
-To install and run the Sons of the Forest server using this container image,
-you will need _Docker_ and _Docker Compose_ installed on your system.
-If you do not have these tools installed,
-please refer to the official Docker documentation for installation instructions.
+* [Docker](https://docs.docker.com/engine/install/)
+* [Docker Compose](https://docs.docker.com/compose/install/standalone/)
+
+## Installation
 
 Once _Docker_ and _Docker Compose_ are installed, clone this repository to your local machine:
 
@@ -37,11 +37,15 @@ git clone https://github.com/RouHim/sons-of-the-forest-container-image.git
 cd sons-of-the-forest-container-image
 ```
 
-Before starting the server, create the required folder structure:
+Before starting the server, create the required folder structure, and adjust the permissions:
 
 ```bash
-mkdir config/ data/ && chmod 777 config/ data/
+mkdir config/ data/ 
+chmod 777 config/ data/
 ```
+
+> The `chmod` command is recommended to avoid permission issues.
+> The main reason is, that the user in the container, most likely differs from the user on the host.
 
 ## Usage
 
