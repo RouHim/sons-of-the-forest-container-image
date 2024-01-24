@@ -16,14 +16,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Audit container image (print to console)
+      - name: Print to console
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'docker.io/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}'
           format: 'table'
           exit-code: '0'
 
-      - name: Audit container image (save to github security tab)
+      - name: Save to github security tab
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'docker.io/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}'
@@ -32,11 +32,19 @@ jobs:
           exit-code: '0'
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
-
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
+
+      - name: Fail if vulnerabilities found
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'docker.io/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
 
   filesystem-audit:
     name: Audit repo filesystem
@@ -45,14 +53,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Audit repo filesystem (print to console)
+      - name: Print to console
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
           format: 'table'
           exit-code: '0'
 
-      - name: Audit repo filesystem (save to github security tab)
+      - name: Save to github security tab
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
@@ -61,11 +69,19 @@ jobs:
           exit-code: '0'
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
-
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
+
+      - name: Fail if vulnerabilities found
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
 
   config-audit:
     name: Audit config files
@@ -74,7 +90,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Trivy vulnerability scanner
+      - name: Print to console
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          hide-progress: false
+          format: 'table'
+          exit-code: '0'
+
+      - name: Save to github security tab
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'config'
@@ -84,8 +108,17 @@ jobs:
           exit-code: '0'
           ignore-unfixed: true
           severity: 'CRITICAL,HIGH'
-
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
+
+      - name: Print to console
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          hide-progress: false
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
