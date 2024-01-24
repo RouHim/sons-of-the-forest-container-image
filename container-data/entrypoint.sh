@@ -47,7 +47,7 @@ wineboot -r
 echo "🔄 Updating server..."
 $STEAMCMD +runscript "$USER_HOME"/steam-game.script
 
-# Modify the $SERVER_CONFIG_DIR/dedicatedserver.cfg (json file) and set the value SkipNetworkAccessibilityTest to true
+# Set skip network accessibility test to true
 echo "🔧 Adjust server config..."
 sed -i 's/"SkipNetworkAccessibilityTest": false/"SkipNetworkAccessibilityTest": true/g' "$SERVER_CONFIG_DIR"/dedicatedserver.cfg
 
