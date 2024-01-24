@@ -1,6 +1,16 @@
 {
   "packageRules": [
     {
+      "managers": ["dockerfile"],
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch"
+      ],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
       "matchUpdateTypes": [
         "major",
         "minor",
