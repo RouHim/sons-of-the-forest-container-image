@@ -1,5 +1,5 @@
 # Use latest Ubuntu as base image
-FROM ubuntu:24.04
+FROM ubuntu:noble-20240114
 
 # Define environment variables
 ENV USER_HOME "/home/ubuntu"
