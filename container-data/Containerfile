@@ -50,5 +50,5 @@ EXPOSE 27016/udp
 EXPOSE 9700/udp
 
 # Define entrypoint
-COPY --chown=ubuntu:ubuntu --chmod=755 entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY --chown=ubuntu:ubuntu --chmod=755 entrypoint.sh /sons-of-the-forest-server.sh
+ENTRYPOINT ["/sons-of-the-forest-server.sh"]
