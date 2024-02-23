@@ -21,6 +21,7 @@
 
 * [Docker](https://docs.docker.com/engine/install/)
 * [Docker Compose](https://docs.docker.com/compose/install/standalone/)
+* At least 8GB of RAM for the server hardware
 
 ## Installation
 
