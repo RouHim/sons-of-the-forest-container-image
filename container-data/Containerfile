@@ -1,5 +1,5 @@
 # Use latest Ubuntu as base image
-FROM ubuntu:noble-20240212
+FROM ubuntu:devel
 
 # Define environment variables
 ENV USER_HOME "/home/ubuntu"
@@ -18,9 +18,8 @@ RUN apt update && \
     chown -R ubuntu:ubuntu $USER_HOME/steamcmd
 
 # Install wine and its dependencies and do a full system upgrade to get the latest and greatest packages
-RUN dpkg --add-architecture i386 && \
-    apt update && \
-    apt install -y --no-install-recommends wine wine32 wine64 winbind xvfb && \
+RUN apt update && \
+    apt install -y --no-install-recommends wine wine64 winbind xvfb && \
     apt upgrade -y
 
 # Cleanup, remove wget
