@@ -57,7 +57,8 @@ When starting the server for the first time:
 
 * The config files and folders will be automatically created in the `config/` folder.
 * The server will download the latest version of the game from Steam to the `data/` folder.
-* The server might need to be restarted once to apply the latest game update.
+
+> You have to restart after the first start.
 
 To restart the server after making changes to the configuration, use the following command:
 
