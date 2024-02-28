@@ -1,4 +1,5 @@
 FROM rouhim/steamcmd-wine:latest
+USER $USER
 
 ENV STEAM_APP_ID "2465200"
 ENV STARTUP_COMMAND "wine SonsOfTheForestDS.exe -userdatapath $SERVER_CONFIG_DIR"
