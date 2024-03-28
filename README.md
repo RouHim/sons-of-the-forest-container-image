@@ -101,5 +101,6 @@ The folder can be deleted to reset the game server to its default state.
 - Inspired by: https://github.com/jammsen/docker-sons-of-the-forest-dedicated-server
 - Built from: https://github.com/RouHim/sons-of-the-forest-container-image
 - Built to: https://hub.docker.com/r/rouhim/sons-of-the-forest-server
+- Based on: https://github.com/RouHim/steamcmd-wine-container-image
 - SteamCMD Documentation: https://developer.valvesoftware.com/wiki/SteamCMD
 - Dedicated server guide: https://steamcommunity.com/sharedfiles/filedetails/?id=2992700419&snr=1_2108_9__2107
