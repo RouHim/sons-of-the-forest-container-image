@@ -6,7 +6,7 @@ services:
       dockerfile: Containerfile
     restart: unless-stopped
     environment:
-      FAST_BOOT: false
+      FAST_BOOT: "false"
     volumes:
       - "./config:/config"
       - "./data:/data"
