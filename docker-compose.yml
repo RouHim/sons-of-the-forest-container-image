@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   sons-of-the-forest-server:
     image: rouhim/sons-of-the-forest-server
@@ -7,6 +5,8 @@ services:
       context: container-data
       dockerfile: Containerfile
     restart: unless-stopped
+    environment:
+      FAST_BOOT: false
     volumes:
       - "./config:/config"
       - "./data:/data"
