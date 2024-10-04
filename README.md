@@ -13,15 +13,15 @@
 </p>
 
 <p align="center">
-    This repository provides a <a href="https://github.com/RouHim/sons-of-the-forest-container-image/actions/workflows/scheduled-security-audit.yaml">safe</a> container image for the <a href="https://sons-of-the-forest.com">Sons of the Forest</a> game server. 
+    This repository provides a <a href="https://github.com/RouHim/sons-of-the-forest-container-image/actions/workflows/scheduled-security-audit.yaml">safe</a> container image for the <a href="https://sons-of-the-forest.com">Sons of the Forest</a> game server.
   It is designed to be used with Docker Compose, making it easy to set up and manage your game server environment.
 </p>
 
 ## Requirements
 
-* [Docker](https://docs.docker.com/engine/install/)
-* [Docker Compose](https://docs.docker.com/compose/install/standalone/)
-* At least 8GB RAM
+- [Docker](https://docs.docker.com/engine/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/standalone/)
+- At least 8GB RAM
 
 ## Installation
 
@@ -35,7 +35,7 @@ cd sons-of-the-forest-container-image
 Before starting the server, create the required folder structure, and adjust the permissions:
 
 ```bash
-mkdir config/ data/ 
+mkdir -p config/ data/
 chmod 777 config/ data/
 ```
 
@@ -47,29 +47,28 @@ chmod 777 config/ data/
 To start the Sons of the Forest server, navigate to the cloned repository's directory and use Docker Compose:
 
 ```bash
-docker-compose pull
-docker-compose up -d
+docker compose up -d --build
 ```
 
 This will pull the latest image and start the server in detached mode.
 
 When starting the server for the first time:
 
-* The config files and folders will be automatically created in the `config/` folder.
-* The server will download the latest version of the game from Steam to the `data/` folder.
+- The config files and folders will be automatically created in the `config/` folder.
+- The server will download the latest version of the game from Steam to the `data/` folder.
 
 > You have to restart after the first start.
 
 To restart the server after making changes to the configuration, use the following command:
 
 ```bash
-docker-compose restart
+docker compose restart
 ```
 
 To check the server logs, use the following command:
 
 ```bash
-docker-compose logs -f
+docker compose logs -f
 ```
 
 ## Update
@@ -88,16 +87,15 @@ The server checks for updates and validates on every boot per default.
 
 The `config` folder contains the configuration files for the game server:
 
-* The server owners list, in a file called `ownerswhitelist.txt`
-* The game server configuration, in a file called `dedicatedserver.cfg`
-* The game saves, in a folder called `Saves`
-* The game settings, in a file called `SonsGameSettings.cfg`
+- The server owners list, in a file called `ownerswhitelist.txt`
+- The game server configuration, in a file called `dedicatedserver.cfg`
+- The game saves, in a folder called `Saves`
+- The game settings, in a file called `SonsGameSettings.cfg`
 
 All files and folders in the `config` will be created automatically when the server is started for the first time.
 
 > `SkipNetworkAccessibilityTest` is always forced to `true`,
 > because the test method is not working in a container environment.
-
 
 The `data/` folder contains the game server data.
 Feel free to modify files in this folder,
