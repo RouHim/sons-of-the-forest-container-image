@@ -1,9 +1,6 @@
 services:
   sons-of-the-forest-server:
     image: rouhim/sons-of-the-forest-server
-    build:
-      context: container-data
-      dockerfile: Containerfile
     restart: unless-stopped
     environment:
       FAST_BOOT: "false"
