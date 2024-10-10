@@ -47,8 +47,8 @@ chmod 777 config/ data/
 To start the Sons of the Forest server, navigate to the cloned repository's directory and use Docker Compose:
 
 ```bash
-docker-compose pull
-docker-compose up -d
+docker compose pull
+docker compose up -d
 ```
 
 This will pull the latest image and start the server in detached mode.
@@ -63,13 +63,13 @@ When starting the server for the first time:
 To restart the server after making changes to the configuration, use the following command:
 
 ```bash
-docker-compose restart
+docker compose restart
 ```
 
 To check the server logs, use the following command:
 
 ```bash
-docker-compose logs -f
+docker compose logs -f
 ```
 
 ## Update
