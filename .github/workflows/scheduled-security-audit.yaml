@@ -113,7 +113,7 @@ jobs:
         with:
           sarif_file: 'trivy-results.sarif'
 
-      - name: Print to console
+      - name: Fail if misconfiguration found
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'config'
