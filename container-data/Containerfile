@@ -1,4 +1,12 @@
 FROM rouhim/steamcmd-wine:latest
+
+# Install additional dependencies
+USER root
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    jq && \
+    rm -rf /var/lib/apt/lists/*
+
 USER $USER
 
 ENV STEAM_APP_ID "2465200"
